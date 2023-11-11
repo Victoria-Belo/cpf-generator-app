@@ -1,4 +1,4 @@
-const { formataCPF, calculoDigitoVerificador, regiaoFiscal } = require('./generate') 
+const { formataCPF, calculoDigitoVerificador, regiaoFiscal, validarCPF } = require('./generate') 
 
 function gerarCPF(){
     const elem = 'RS'; //vai precisar puxar pelo componente    
@@ -6,21 +6,22 @@ function gerarCPF(){
     const random = Math.random().toFixed(8).split('.');
 
     const numeroPorRegiaoFiscal = regiaoFiscal(elem);
-    const resultado = random[1].concat(numeroPorRegiaoFiscal);
-    const r = calculoDigitoVerificador(resultado.split(''));
-    const resultado1 = resultado.concat(r);
+    const resultadoConcatenado = random[1].concat(numeroPorRegiaoFiscal);
+    const resultadoDigitoVerificador = calculoDigitoVerificador(resultadoConcatenado.split(''));
+    const primeiroResultadoDV = resultadoConcatenado.concat(resultadoDigitoVerificador);
 
     // regra: calculo do segundo dígito deve remover primeiro elemento
-    let removendoPrimeiroElemento = resultado1.split('');
+    let removendoPrimeiroElemento = primeiroResultadoDV.split('');
     removendoPrimeiroElemento.shift();
-    const r1 = calculoDigitoVerificador(removendoPrimeiroElemento.join('').split(''));
+    const segundoResultadoDV = calculoDigitoVerificador(removendoPrimeiroElemento.join('').split(''));
 
-    const cpfFormado =  resultado1.concat(r1);
+    const cpfFormatado =  primeiroResultadoDV.concat(segundoResultadoDV);
     
-    const resultadoFinal = formataCPF(cpfFormado);
+    const final = formataCPF(cpfFormatado);
 
-    console.log('resultadoFinal ', resultadoFinal);
-    // const r = formataCPF(resultado);
+    console.log('resultado Final ', final);
+
+    validarCPF(final);
 }
 
 gerarCPF();

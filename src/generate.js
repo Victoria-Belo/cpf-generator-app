@@ -40,4 +40,11 @@ function formataCPF(n){
     return CPFformatado.join('');
 }
 
-module.exports = {formataCPF, calculoDigitoVerificador, regiaoFiscal}
+function validarCPF(cpf){
+    const dv = [10, 9, 8, 7, 6, 5, 4, 3, 2];
+    var cpfSemPontuacao = cpf.replace(/\D/g, ''); 
+    var novePrimeirosDigitos = cpfSemPontuacao.substring(0, 9);
+    
+}   
+
+module.exports = {formataCPF, calculoDigitoVerificador, regiaoFiscal, validarCPF}
