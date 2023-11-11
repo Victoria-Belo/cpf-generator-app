@@ -20,8 +20,8 @@ function gerarCPF(){
     const final = formataCPF(cpfFormatado);
 
     console.log('resultado Final ', final);
-
-    validarCPF(final);
+   
 }
 
-gerarCPF();
+const cpf = '145.382.206-20'
+validarCPF(cpf);
