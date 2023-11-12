@@ -53,7 +53,7 @@ ABC.DEF.GHI-JK
       (A * 10) = v1, (B * 9) = v2(...); A soma então é v1 + v2 + v3(...)
       O resultado da soma dividido por 11 para obter o resto.
 
-- [x]  O segundo Dígito Verificador é calculado pela mesma regra, na qual os números a serem multiplicados pela sequência 10 são contados a partir do segundo dígito, sendo então o dv1 o último algarismo.  Como antes, calcula-se o resto (r) da divisão da soma dos resultados por 11.
+- [x]  O segundo Dígito Verificador é calculado pela mesma regra, na qual os números a serem multiplicados pela sequência 10 a 2 são contados a partir do segundo dígito, sendo então o dv1 o último algarismo.  Como antes, calcula-se o resto (r) da divisão da soma dos resultados por 11.
 
 - [x] Para ambos dígitos verificadores, se o valor do resto for menor ou igual a 1, o dig. verificador é 0. Se não, aplica-se: 11 - resto 
 
