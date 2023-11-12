@@ -1,4 +1,4 @@
-# cpf-generator-app
+# CPF-Generator-app
 
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-%238A4182?style=for-the-badge&logo=node.js&logoColor=white" />  
