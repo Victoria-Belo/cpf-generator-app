@@ -44,11 +44,13 @@ ABC.DEF.GHI-JK
 
 ### Dígito Verificador
 
-- [x] Os nove primeiros dígitos são ordenadamente multiplicados pela sequência 10 a 2, dígito A sendo multiplicado por 10, B por 9 e assim por diante. Em seguida, calcula-se o resto (r) da divisão da soma dos resultados por 11, isso é: (A * 10) = v1, (B * 9) = v2(...); A Soma então é v1 + v2 + v3(...) 
+- [x] Os nove primeiros dígitos são ordenadamente multiplicados pela sequência 10 a 2, ou seja, dígito A sendo multiplicado por 10, B por 9 e assim por diante. Em seguida, calcula-se o resto (r) da divisão da soma dos resultados por 11. Isso é:
+      (A * 10) = v1, (B * 9) = v2(...); A soma então é v1 + v2 + v3(...)
+      O resultado da soma dividido por 11 para obter o resto.
 
 - [x]  O segundo Dígito Verificador é calculado pela mesma regra, na qual os números a serem multiplicados pela sequência 10 são contados a partir do segundo dígito, sendo então o dv1 o último algarismo.  Como antes, calcula-se o resto (r) da divisão da soma dos resultados por 11.
 
-- [x] Para ambos os dígitos verificadores, ao final do cálculo se o resto for menor ou igual a 1, o dig. verificador é 0. Se não, aplica-se: 11 - resto 
+- [x] Para ambos dígitos verificadores, se o valor do resto for menor ou igual a 1, o dig. verificador é 0. Se não, aplica-se: 11 - resto 
 
 
 ### Resultado:
