@@ -9,6 +9,11 @@
    <img src="https://img.shields.io/badge/ON-green?logo=github&label=GITPAGE" />
 </p>
 
+## BRANCHS
+<p><img src="https://img.shields.io/badge/MAIN-8A2BE2?logo=git&label=BRANCH&labelColor=white"/> https://victoria-belo.github.io/cpf-generator-app/</p>
+<br>
+<p><img src="https://img.shields.io/badge/DEV-8A2BE2?logo=git&label=BRANCH&labelColor=white" /> Configurado para localhost. Baixe, instale e acesse http://localhost:8080/api </p>
+<br>
 
 ## Como é formado o CPF?
 
