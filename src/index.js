@@ -1,9 +1,10 @@
-const { formataCPF, calculoDigitoVerificador, regiaoFiscal, validarCPF } = require('./generate') 
+import { formataCPF, calculoDigitoVerificador, regiaoFiscal } from './generate.js';
 
-function gerarCPF(){
-    const elem = 'RS'; //vai precisar puxar pelo componente    
 
+window.gerarCPF = function(){
     const random = Math.random().toFixed(8).split('.');
+    const elem = document.getElementById("floatingSelectGrid").value;   
+    let cpfGerado = document.getElementById('floatingInputGrid');    
 
     const numeroPorRegiaoFiscal = regiaoFiscal(elem);
     const resultadoConcatenado = random[1].concat(numeroPorRegiaoFiscal);
@@ -17,11 +18,32 @@ function gerarCPF(){
 
     const cpfFormatado =  primeiroResultadoDV.concat(segundoResultadoDV);
     
-    const final = formataCPF(cpfFormatado);
-
-    console.log('resultado Final ', final);
-   
+    cpfGerado.value = formataCPF(cpfFormatado);      
 }
 
-const cpf = '145.382.206-20'
-validarCPF(cpf);
+window.validarCPF = function(){
+    const cpf = document.getElementById('floatingInputGridValidar').value;
+    let validacao = document.getElementById('floatingInputGridRespostaValidar'); 
+    const cpfSemPontuacao = cpf.replace(/\D/g, ''); 
+    const novePrimeirosDigitos = cpfSemPontuacao.substring(0, 9);
+    const dezPrimeirosDigitos = cpfSemPontuacao.substring(0, 10);
+    const array = novePrimeirosDigitos.split('');
+    const array02 = dezPrimeirosDigitos.split('');
+
+    const dv01 = calculoDigitoVerificador(array);
+
+    const originalArrayCPF = cpfSemPontuacao.split('');
+    const checkingDV1 = parseInt(originalArrayCPF[9]) === dv01;
+
+    array02.shift();
+    const dv02 = calculoDigitoVerificador(array02.join('').split(''));
+  
+    const checkingDV2 = parseInt(originalArrayCPF[10]) === dv02;
+
+    const resposta = !(!checkingDV1 || !checkingDV2);  
+    validacao.value = resposta ? 'CPF válido' : 'CPF inválido';    
+}   
+
+
+
+

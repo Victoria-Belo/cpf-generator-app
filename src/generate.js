@@ -1,5 +1,5 @@
 // nono dígito
-function regiaoFiscal(estado){   
+export function regiaoFiscal(estado){   
     const federacoes = {
         'DF': 1, 'GO': 1, 'MS': 1, 'MT': 1, 'TO': 1,
         'AC': 2, 'AM': 2, 'AP': 2, 'PA': 2, 'RO': 2, 'RR': 2,
@@ -14,7 +14,7 @@ function regiaoFiscal(estado){
     return federacoes[estado] || 0;
 }
 
-function calculoDigitoVerificador(array){
+export function calculoDigitoVerificador(array){
     const dv = [10, 9, 8, 7, 6, 5, 4, 3, 2];
     let soma = 0;
     let resto = 0;
@@ -25,7 +25,7 @@ function calculoDigitoVerificador(array){
     return resto <= 1 ? 0 : 11 - resto; 
 }
 
-function formataCPF(n){    
+export function formataCPF(n){    
     const digitos = n.split('');  
     let CPFformatado = [];   
     for(let i = 0; i <= digitos.length; i++){       
@@ -40,26 +40,3 @@ function formataCPF(n){
     return CPFformatado.join('');
 }
 
-function validarCPF(cpf){
-   
-    const cpfSemPontuacao = cpf.replace(/\D/g, ''); 
-    const novePrimeirosDigitos = cpfSemPontuacao.substring(0, 9);
-    const dezPrimeirosDigitos = cpfSemPontuacao.substring(0, 10);
-    const array = novePrimeirosDigitos.split('');
-    const array02 = dezPrimeirosDigitos.split('');
-
-    const dv01 = calculoDigitoVerificador(array);
-
-    const originalArrayCPF = cpfSemPontuacao.split('');
-    const checkingDV1 = parseInt(originalArrayCPF[9]) === dv01;
-
-    array02.shift();
-    const dv02 = calculoDigitoVerificador(array02.join('').split(''));
-  
-    const checkingDV2 = parseInt(originalArrayCPF[10]) === dv02;
-
-    return !(!checkingDV1 || !checkingDV2);  
-    
-}   
-
-module.exports = { formataCPF, calculoDigitoVerificador, regiaoFiscal, validarCPF }
