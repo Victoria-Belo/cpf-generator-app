@@ -22,17 +22,11 @@ ABC.DEF.GHI-JK
 
 - [x] Os primeiros 8 dígitos, ABCDEFGH, formam o número-base definido pela Receita Federal no momento da inscrição
 - [x] O 9º dígito, I, define a Região Fiscal responsável pela inscrição
-- [x] O 10º dígito, J, é o dígito verificador dos nove primeiros seguindo o cálculo <img src = "https://wikimedia.org/api/rest_v1/media/math/render/svg/0684b21d4f00daf8788965c0d67f7c975172bb3e" style="max-width:50%; height:auto;" /> 
-- [x] O 11º dígito, K, é o dígito verificador dos noves anteriores a ele seguindo a fórmula <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ff9a75b1f2c01dc6ab178fbe4da2052188dbe8a8" style="max-width:50%; height:auto;" />
-      
+- [x] O 10º dígito, J, é o dígito verificador dos nove primeiros
+- [x] O 11º dígito, K, é o dígito verificador dos noves anteriores a ele 
 
-      
-### Exemplo:
-```plaintext
-123.456.789-09
-```
 
-### VALORES POR ESTADO :
+### VALOR NONO DÍGITO:
 
 | Código | Região Fiscal                |
 |--------|-----------------------------|
@@ -46,3 +40,19 @@ ABC.DEF.GHI-JK
 | 8      | SP                            |
 | 9      | PR e SC                      |
 | 0      | RS                            |
+
+
+### Dígito Verificador
+
+- [x] Os nove primeiros dígitos são ordenadamente multiplicados pela sequência 10 a 2, dígito A sendo multiplicado por 10, B por 9 e assim por diante. Em seguida, calcula-se o resto (r) da divisão da soma dos resultados por 11, isso é: (A * 10) = v1, (B * 9) = v2(...); A Soma então é v1 + v2 + v3(...) 
+
+- [x]  O segundo Dígito Verificador é calculado pela mesma regra, na qual os números a serem multiplicados pela sequência 10 são contados a partir do segundo dígito, sendo então o dv1 o último algarismo.  Como antes, calcula-se o resto (r) da divisão da soma dos resultados por 11.
+
+- [x] Para ambos os dígitos verificadores, ao final do cálculo se o resto for menor ou igual a 1, o dig. verificador é 0. Se não, aplica-se: 11 - resto 
+
+
+### Resultado:
+```plaintext
+123.456.789-09
+```
+
